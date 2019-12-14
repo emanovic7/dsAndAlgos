@@ -20,8 +20,8 @@
  * @return {number}
  */
 
- const numOfJewelsInStones = (J, S) => {
-   //long way:
+  //long way:
+ const numOfJewelsInStonesLong = (J, S) => {
    let count = 0;
    for(let i=0; i<J.length; i++){
      for(let j=0; j<S.length; j++){
@@ -31,4 +31,22 @@
      }
    }
    return count
+ }
+
+
+ //short way:
+ const numOfJewelsInStonesShort = () => {
+   let count = 0;
+   let hash = {};
+
+   for(let j in J){
+     hash[J[j]] = j;
+   }
+
+   for(let k in S){
+     if(hash[S[k]] !== undefined){
+       count++;
+     }
+   }
+   return count;
  }
