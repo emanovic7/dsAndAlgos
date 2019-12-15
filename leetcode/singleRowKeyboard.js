@@ -26,17 +26,29 @@
  */
 
 const calculateTime = (keyboard, word) => {
-  let wordSplit = word.split('');
-  let position = keyboard.indexOf(word[0]);
-  let time = position;
-  let timeTaken = 0;
+  // let wordSplit = word.split('');
+  // let position = keyboard.indexOf(word[0]);
+  // let time = position;
+  // let timeTaken = 0;
+  //
+  // for(let i=1; i<wordSplit.length; i++){
+  //     let currLetter = wordSplit[i];
+  //     let currPos = keyboard.indexOf(currLetter);
+  //     timeTaken = position - currPos;
+  //     time += timeTaken;
+  //     position = currPos
+  // }
+  let hash = {};
+  let currPos = 0;
+  let time = 0;
+  for(let i=0; i<keyboard.length; i++){
+      hash[keyboard[i]] = i;
+  }
 
-  for(let i=1; i<wordSplit.length; i++){
-      let currLetter = wordSplit[i];
-      let currPos = keyboard.indexOf(currLetter);
-      timeTaken = position - currPos;
-      time += timeTaken;
-      position = currPos
+  for(let j=0; j<word.length; j++){
+      let charPos = hash[word[j]];
+      time += Math.abs(currPos - charPos);
+      currPos = charPos;
   }
   return time;
 }
