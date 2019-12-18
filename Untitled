@@ -1,0 +1,36 @@
+
+
+
+const returnHighestCust = (clients) => {
+
+  let patient = "";
+  let highestAvg = 0;
+  let patientsHash = {};
+
+  for(let i=0; i<clients.length; i++){
+    let customerName = clients[i][0];
+    let customerCost = clients[i][1];
+
+    if(patientsHash[customerName] !== undefined){
+      let currentCost = patientsHash[customerName][0];
+      let currentCount = patientsHash[customerName][1];
+      currentCount++;
+      let newCost = currentCost + customerCost;
+      patientsHash[customerName] = [newCost, currentCount];
+    }else {
+      patientsHash[customerName] = [customerCost, 1];
+
+    }
+    let patientAvg = patientsHash[customerName][0] / patientsHash[customerName][1];
+    if(patientAvg > highestAvg){
+      highestAvg = patientAvg;
+      patient = customerName
+    }
+  }
+   return patient;
+}
+
+patientsHash = {
+   John: [130, 2]
+   Brian: 60,
+}
