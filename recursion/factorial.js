@@ -47,5 +47,5 @@ const findFactorialRecursive = (number) => {
     return 2;
   }
 
-  return number * findFactorialRecursive(number - 1);
+  return number * findFactorialRecursive(number - 1);ev
 }
