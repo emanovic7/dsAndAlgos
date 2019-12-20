@@ -15,6 +15,25 @@
 
 //ANSWER, using hash maps
 
+const anagramMappings = () => {
+  let hash = {};
+  let results = [];
+
+  for(let i=0; i<B.length; i++){
+      let currNum = B[i];
+     if(hash[currNum] === undefined){
+         hash[currNum] = i;
+     }
+  }
+
+  for(let j=0; j<A.length; j++){
+      if(hash[A[j]]){
+          results.push(hash[A[j]])
+      }
+  }
+  return results;
+}
+
 
 //ANSWER, using indexOf
 
