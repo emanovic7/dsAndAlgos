@@ -27,7 +27,7 @@ const anagramMappings = () => {
   }
 
   for(let j=0; j<A.length; j++){
-      if(hash[A[j]]){
+      if(hash[A[j]] !== undefined){
           results.push(hash[A[j]])
       }
   }
