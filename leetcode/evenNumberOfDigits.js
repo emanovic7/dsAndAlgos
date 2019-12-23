@@ -20,12 +20,12 @@
 
 //approach 1
 const findNumbers = (nums) => {
-  let results = [];
+  let count = 0;
    for(let i=0; i<nums.length; i++){
        let currNum = nums[i];
        if(currNum.toString().length % 2 === 0){
-           results.push(currNum)
+           count++
        }
    }
-   return results.length
+   return count;
 }
