@@ -16,7 +16,7 @@
 // Output: 0
 // Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
-
+//Approach 1
 const maxProfit = (prices) => {
   let sell = 0;
   let buy = prices[0];
@@ -30,6 +30,20 @@ const maxProfit = (prices) => {
     if(currEle < buy){
       buy = currEle;
     }
+  }
+
+  return sell;
+}
+
+//Approach 2
+const maxProfit = (prices) => {
+  let sell = 0;
+  let buy = prices[0];
+
+  for(let i=0; i<prices.length; i++){
+    buy = Math.min(prices[i], buy);
+
+    sell = Math.max(prices[i]-buy, sell);
   }
 
   return sell;
