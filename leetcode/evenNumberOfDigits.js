@@ -29,3 +29,8 @@ const findNumbers = (nums) => {
    }
    return count;
 }
+
+//approach 2, using filter, longer
+const findNumbers = (nums) => {
+  return nums.filter(number => number.toString().length % 2 === 0).length;
+}
