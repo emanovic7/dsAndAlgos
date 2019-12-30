@@ -14,7 +14,20 @@ class Stack {
   }
 
   peek(){
-    return this.array[0]
+    return this.array[this.array.length - 1];
+  }
+
+  push(value){
+    this.array.push(value);
+    return this;
+  }
+
+  pop(){
+    if(this.array.length === 0){
+      return null;
+    }
+    this.array.pop();
+    return this;
   }
 
 }
