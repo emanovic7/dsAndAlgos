@@ -33,8 +33,11 @@ class HashTable {
     const currentBucket = this.data[address]
      //if currentBucket isn't empty
     if (currentBucket) {
+      //loop through bucket (a bucket can contain several key value pairs due to collisions)
       for(let i = 0; i < currentBucket.length; i++){
+        //if first array element of the ith element in the bucket is the same as the key
         if(currentBucket[i][0] === key) {
+          //return the value in the ith element. 
           return currentBucket[i][1]
         }
       }
